@@ -29,6 +29,8 @@ The system displays LED status on a 0.91-inch OLED display and allows real-time 
   <img src="images/selected-color.gif" alt="ESP32 Web LED Controller" width="100%" />
 </p>
 
+[Full Video](https://youtu.be/n1ZsdyztKbw)
+
 ---
 
 ## Project Structure
