@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#007AFF">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="orientation" content="portrait">
+    <title>MorseTech Lab | LED Control</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Top Bar - Fixed -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <div class="logo-text">MorseTech Lab</div>
+        </div>
+        <div class="connection-indicator" id="connectionStatus">
+            <div class="connection-dot"></div>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="เปลี่ยนโหมดสี">
+            <div class="theme-icon" id="themeIcon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" />
+                    <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">LED Controller</h1>
+            <p class="subtitle">ESP32-S3-WROOM-1 N16R8</p>
+        </header>
+
+        <!-- Status Card with Integrated Power Button -->
+        <section class="status-card" id="statusCard">
+            <div class="status-content">
+                <div class="status-info">
+                    <div class="status-icon" id="statusIcon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 4v16" />
+                            <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+                            <path d="M2 17h20" />
+                            <path d="M6 8v9" />
+                        </svg>
+                    </div>
+                    <div class="status-text">
+                        <span class="status-label" id="statusLabel">Bed Room</span>
+                        <span class="status-description" id="statusDescription">แตะเพื่อเปิด</span>
+                    </div>
+                </div>
+
+                <!-- Power Button inside Status Card -->
+                <button class="power-button" id="powerButton" aria-label="เปิด/ปิด LED">
+                    <div class="power-button-inner">
+                        <div class="power-icon" id="powerIcon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M18.36 6.64A9 9 0 1 1 5.64 6.64" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                                <line x1="12" y1="2" x2="12" y2="12" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- Color Selection -->
+        <section class="color-section" id="colorSection">
+
+            <!-- Custom Color Picker -->
+            <div class="custom-color-container">
+                <label class="custom-color-label">
+                    <input type="color" class="custom-color-input" id="customColorPicker" value="#FFFFFF">
+                    <div class="custom-color-button">
+                        <div class="custom-color-preview" id="customColorPreview"></div>
+                        <span class="custom-color-text">สีกำหนดเอง</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="color-grid">
+                <!-- Predefined Colors - White first -->
+                <button class="color-option selected" data-color="#FFFFFF" style="--color: #FFFFFF" aria-label="สีขาว">
+                    <div class="color-option-inner">
+                        <div class="color-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button class="color-option" data-color="#FF3B30" style="--color: #FF3B30" aria-label="สีแดง">
+                    <div class="color-option-inner">
+                        <div class="color-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <polyline points="20,6 9,17 4,12" stroke="white" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button class="color-option" data-color="#FF9500" style="--color: #FF9500" aria-label="สีส้ม">
+                    <div class="color-option-inner">
+                        <div class="color-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <polyline points="20,6 9,17 4,12" stroke="white" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button class="color-option" data-color="#FFCC00" style="--color: #FFCC00" aria-label="สีเหลือง">
+                    <div class="color-option-inner">
+                        <div class="color-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <polyline points="20,6 9,17 4,12" stroke="white" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button class="color-option" data-color="#34C759" style="--color: #34C759" aria-label="สีเขียว">
+                    <div class="color-option-inner">
+                        <div class="color-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <polyline points="20,6 9,17 4,12" stroke="white" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button class="color-option" data-color="#007AFF" style="--color: #007AFF" aria-label="สีน้ำเงิน">
+                    <div class="color-option-inner">
+                        <div class="color-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <polyline points="20,6 9,17 4,12" stroke="white" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button class="color-option" data-color="#5856D6" style="--color: #5856D6" aria-label="สีม่วง">
+                    <div class="color-option-inner">
+                        <div class="color-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <polyline points="20,6 9,17 4,12" stroke="white" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+
+                <button class="color-option" data-color="#FF2D92" style="--color: #FF2D92" aria-label="สีชมพู">
+                    <div class="color-option-inner">
+                        <div class="color-check">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <polyline points="20,6 9,17 4,12" stroke="white" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
