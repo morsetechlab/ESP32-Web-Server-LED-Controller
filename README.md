@@ -29,7 +29,7 @@
   <img src="images/selected-color.gif" alt="ESP32 Web LED Controller" width="100%" />
 </p>
 
-[Full Video](https://youtu.be/n1ZsdyztKbw)
+Watch here: [YouTube - ESP32 Web LED Controller Demo](https://youtu.be/n1ZsdyztKbw)
 
 ---
 
