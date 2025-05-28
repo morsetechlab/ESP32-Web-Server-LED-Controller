@@ -1,8 +1,5 @@
 [![PlatformIO](https://img.shields.io/badge/PlatformIO-ESP32--S3-orange?style=flat)](https://platformio.org/)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=flat)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Active-success?style=flat)]()
 [![WebSocket](https://img.shields.io/badge/Protocol-WebSocket-lightgrey?style=flat)]()
-[![Download](https://img.shields.io/badge/Download-ZIP-green?style=flat)](https://github.com/morsetechlab/esp32-web-led-controller/archive/refs/heads/main.zip)
 
 
 # ESP32 Web LED Controller
