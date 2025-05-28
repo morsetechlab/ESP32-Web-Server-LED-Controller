@@ -50,19 +50,35 @@ esp32-web-led-controller/
 
 ## Usage
 
-1. ติดตั้ง PlatformIO
-2. ดาวน์โหลดโค้ด:
-   - Download ZIP หรือใช้คำสั่ง  
-     git clone https://github.com/morsetechlab/esp32-web-led-controller.git
-3. เชื่อมต่อ ESP32-S3 เข้ากับคอมพิวเตอร์
-4. อัปโหลดโค้ด:
-   platformio run --target upload
-   platformio run --target uploadfs
-5. เปิด Wi-Fi:
-   SSID: ESP32S3-LED
-   Password: 12345678
-6. เข้าหน้าเว็บ:
+1. ติดตั้ง [PlatformIO](https://platformio.org/install) ใน VS Code
+
+2. ดาวน์โหลดโค้ดจาก GitHub:
+   - กดปุ่ม `Code > Download ZIP` แล้วแตกไฟล์
+   - หรือใช้คำสั่ง Git:
+     ```bash
+     git clone https://github.com/morsetechlab/ESP32-Web-Server-LED-Controller
+     ```
+
+3. เปิดโปรเจกต์ด้วย PlatformIO และเชื่อมต่อบอร์ด ESP32-S3 กับคอมพิวเตอร์
+
+4. อัปโหลดโค้ดและไฟล์เว็บไปยังบอร์ด:
+   ```bash
+   platformio run --target upload     # อัปโหลดเฟิร์มแวร์
+   platformio run --target uploadfs   # อัปโหลดไฟล์ Web UI ไปยัง SPIFFS
+   ```
+
+5. เปิดใช้งาน Wi-Fi บน ESP32-S3:
+   - SSID: `ESP32S3-LED`
+   - Password: `12345678`
+
+6. เชื่อมต่อ Wi-Fi จากอุปกรณ์ของคุณ (มือถือหรือคอม)
+
+7. เปิดเว็บเบราว์เซอร์แล้วไปที่:
+   ```
    http://192.168.4.1
+   ```
+
+   ระบบจะแสดง Web UI สำหรับควบคุม LED และแสดงสถานะบนจอ OLED
 
 ---
 
