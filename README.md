@@ -1,5 +1,9 @@
 [![PlatformIO](https://img.shields.io/badge/PlatformIO-ESP32--S3-orange?style=flat)](https://platformio.org/)
 [![WebSocket](https://img.shields.io/badge/Protocol-WebSocket-lightgrey?style=flat)]()
+[![OLED Display](https://img.shields.io/badge/Display-OLED--0.91in-informational?style=flat)]()
+[![RGB LED](https://img.shields.io/badge/LED-RGB--WS2812-yellow?style=flat)]()
+[![IoT Platform](https://img.shields.io/badge/IoT-SmartHome-blueviolet?style=flat)]()
+
 
 
 # ESP32 Web LED Controller
