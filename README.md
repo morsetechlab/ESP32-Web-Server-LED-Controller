@@ -26,7 +26,7 @@
 ## Demo
 
 <p align="center">
-  <img src="selected-color.gif" alt="ESP32 Web LED Controller" width="100%" />
+  <img src="images/selected-color.gif" alt="ESP32 Web LED Controller" width="100%" />
 </p>
 
 ---
