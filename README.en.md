@@ -93,11 +93,11 @@ esp32-web-led-controller/
 
 ## Libraries Used
 
-| Library | Description | License |
-|--------|-------------|---------|
-| [FastLED](https://github.com/FastLED/FastLED) | RGB LED control | MIT |
-| [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer) | Async HTTP + WebSocket server | MIT |
-| [Adafruit_SSD1306](https://github.com/adafruit/Adafruit_SSD1306) | OLED I2C Display Driver | BSD |
+| Library | Description |
+|--------|-------------|
+| [FastLED](https://github.com/FastLED/FastLED) | RGB LED control |
+| [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer) | Async HTTP + WebSocket server |
+| [Adafruit_SSD1306](https://github.com/adafruit/Adafruit_SSD1306) | OLED I2C Display Driver |
 
 ---
 
