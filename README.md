@@ -50,6 +50,46 @@ esp32-web-led-controller/
 
 ---
 
+## Equipment used
+
+- ESP32-S3 DevKit (WROOM-1 N16R8)
+- จอ OLED ขนาด 0.91 นิ้ว (128x32) แบบ I2C
+- WS2812 RGB LED
+- สาย Jumper / Breadboard
+
+---
+
+## Libraries Used
+
+| Library | Description |
+|--------|-------------|
+| [FastLED](https://github.com/FastLED/FastLED) | RGB LED control |
+| [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer) | Async HTTP + WebSocket server |
+| [Adafruit_SSD1306](https://github.com/adafruit/Adafruit_SSD1306) | OLED I2C Display Driver |
+
+---
+
+## Supported Boards
+
+- ESP32-S3 DevKitC-1 WROOM-1 (N8/N16, PSRAM Optional)
+- Any ESP32-S3 board with GPIO and I2C support
+
+---
+
+## Wiring
+
+```
+ESP32-S3
+│
+├─ PIN 13 (SDA) ───► OLED SDA (I²C Data)
+├─ PIN 14 (SCL) ───► OLED SCL (I²C Clock)
+├─ GND ───────────► OLED GND, WS2812 GND (Shared Ground)
+├─ 3.3V ──────────► OLED VCC, WS2812 VCC (Power Supply)
+└─ PIN 48 ────────► WS2812 DIN (Data In, Passive)
+```
+
+---
+
 ## Usage
 
 1. ติดตั้ง [PlatformIO](https://platformio.org/install) ใน VS Code
@@ -81,32 +121,6 @@ esp32-web-led-controller/
    ```
 
    ระบบจะแสดง Web UI สำหรับควบคุม LED และแสดงสถานะบนจอ OLED
-
----
-
-## Equipment used
-
-- ESP32-S3 DevKit (WROOM-1 N16R8)
-- จอ OLED ขนาด 0.91 นิ้ว (128x32) แบบ I2C
-- WS2812 RGB LED
-- สาย Jumper / Breadboard
-
----
-
-## Libraries Used
-
-| Library | Description |
-|--------|-------------|
-| [FastLED](https://github.com/FastLED/FastLED) | RGB LED control |
-| [ESPAsyncWebServer](https://github.com/me-no-dev/ESPAsyncWebServer) | Async HTTP + WebSocket server |
-| [Adafruit_SSD1306](https://github.com/adafruit/Adafruit_SSD1306) | OLED I2C Display Driver |
-
----
-
-## Supported Boards
-
-- ESP32-S3 DevKitC-1 WROOM-1 (N8/N16, PSRAM Optional)
-- Any ESP32-S3 board with GPIO and I2C support
 
 ---
 
